@@ -57,6 +57,10 @@ fileConfig:
       fileLimit: 5
       fileSizeLimit: 5
       totalSizeLimit: 15
+      supportedMimeTypes:
+        - "image/.*"
+        - "application/pdf"      
+      
 
 
 
