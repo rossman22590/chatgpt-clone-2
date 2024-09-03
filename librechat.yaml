@@ -14,11 +14,11 @@ cache: true
  #  serverFileSizeLimit: 100  # Global server file size limit in MB
  #  avatarSizeLimit: 2  # Limit for user avatar image size in MB
 # rateLimits:
- # fileUploads:
- #   ipMax: 100
- #   ipWindowInMinutes: 60  # Rate limit window for file uploads per IP
- #   userMax: 50
- #   userWindowInMinutes: 60  # Rate limit window for file uploads per user
+ fileUploads:
+   ipMax: 100
+   ipWindowInMinutes: 60
+   userMax: 50
+   userWindowInMinutes: 60
 registration:
  socialLogins: ["google", "facebook", "github", "discord", "openid"]
 
