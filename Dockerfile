@@ -32,9 +32,6 @@ RUN mkdir -p /app/data/images /app/data/logs /app/client/public /app/api
 RUN ln -s /app/data/images /app/client/public/images && \
     ln -s /app/data/logs /app/api/logs
 
-# Install global dependencies
-RUN npm install -g rollup rimraf
-
 # Build the frontend
 RUN NODE_OPTIONS="--max-old-space-size=2048" npm run frontend
 
