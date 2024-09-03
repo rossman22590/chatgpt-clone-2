@@ -54,9 +54,9 @@ speech:
 fileConfig:
   endpoints:
     default:
-      fileLimit: 20
-      fileSizeLimit: 50
-      totalSizeLimit: 150
+      fileLimit: 5
+      fileSizeLimit: 5
+      totalSizeLimit: 15
 
 
 
