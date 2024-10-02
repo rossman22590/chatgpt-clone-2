@@ -153,6 +153,8 @@ endpoints:
           "neversleep/llama-3-lumimaid-8b:extended",
           "nousresearch/hermes-3-llama-3.1-405b:extended",
           "openai/gpt-4o:extended",
+          "openai/o1-mini",
+          "openai/o1-preview",
           "meta-llama/llama-3.2-90b-vision-instruct",
           "openai/o1-mini",
           "openai/o1-preview",
