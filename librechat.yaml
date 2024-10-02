@@ -16,9 +16,9 @@ cache: true
 # rateLimits:
  # fileUploads:
  #   ipMax: 100
- #   ipWindowInMinutes: 60  # Rate limit window for file uploads per IP
+ #   ipWindowInMinutes: 60
  #   userMax: 50
- #   userWindowInMinutes: 60  # Rate limit window for file uploads per user
+ #   userWindowInMinutes: 60
 registration:
  socialLogins: ["google", "facebook", "github", "discord", "openid"]
 
@@ -35,19 +35,19 @@ speech:
       model: 'whisper-1'
 
   speechTab:
-    conversationMode: true
+    conversationMode: false
     advancedMode: true
     speechToText:
       engineSTT: "external"
       languageSTT: "English (US)"
-      autoTranscribeAudio: true
+      autoTranscribeAudio: false
       decibelValue: -45
       autoSendText: 0
     textToSpeech:
       engineTTS: "external"
       voice: "alloy"
       languageTTS: "en"
-      automaticPlayback: true
+      automaticPlayback: false
       playbackRate: 1.0
       cacheTTS: true
 
@@ -57,17 +57,20 @@ fileConfig:
       fileLimit: 5
       fileSizeLimit: 5
       totalSizeLimit: 15
+      supportedMimeTypes:
+        - "image/.*"
+        - "application/pdf"      
+      
 
 
 
 endpoints:
   assistants:
-    disableBuilder: false # Disable Assistants Builder Interface by setting to `true`
+    disableBuilder: true
     pollIntervalMs: 750  # Polling interval for checking assistant updates
     timeoutMs: 180000  # Timeout for assistant operations
-    privateAssistants: true
     # Should only be one or the other, either `supportedIds` or `excludedIds`
-    # supportedIds: ["asst_supportedAssistantId1", "asst_supportedAssistantId2"]
+    supportedIds:  ["asst_zkk3O1ezwiSZOeL8fawwNM4T", "asst_u51esOrG7mUSvFatT0jfmPAy", "asst_55xDogtGtbZkA3Zxv1QMxZ2Y"]
     # excludedIds: ["asst_excludedAssistantId"]
   custom:
     - name: "Mistral"
@@ -152,6 +155,9 @@ endpoints:
           "neversleep/llama-3-lumimaid-8b:extended",
           "nousresearch/hermes-3-llama-3.1-405b:extended",
           "openai/gpt-4o:extended",
+          "meta-llama/llama-3.2-90b-vision-instruct",
+          "openai/o1-mini",
+          "openai/o1-preview",
           "undi95/remm-slerp-l2-13b:extended",
           "---01-AI---",
           "01-ai/yi-1.5-34b-chat",
@@ -336,5 +342,3 @@ endpoints:
       summaryModel: "mixtral-8x7b-32768"
       forcePrompt: false
       modelDisplayLabel: "groq"
-
-   
