@@ -1,4 +1,4 @@
-const { Tools, Constants } = require('librechat-data-provider');
+const { Tools } = require('librechat-data-provider');
 const { SerpAPI } = require('@langchain/community/tools/serpapi');
 const { Calculator } = require('@langchain/community/tools/calculator');
 const { createCodeExecutionTool, EnvVar } = require('@librechat/agents');
@@ -17,11 +17,8 @@ const {
 } = require('../');
 const { primeFiles: primeCodeFiles } = require('~/server/services/Files/Code/process');
 const { createFileSearchTool, primeFiles: primeSearchFiles } = require('./fileSearch');
-const { createMCPTool } = require('~/server/services/MCP');
 const { loadSpecs } = require('./loadSpecs');
 const { logger } = require('~/config');
-
-const mcpToolPattern = new RegExp(`^.+${Constants.mcp_delimiter}.+$`);
 
 /**
  * Validates the availability and authentication of tools for a user based on environment variables or user-specific plugin authentication values.
@@ -145,25 +142,10 @@ const loadToolWithAuth = (userId, authFields, ToolConstructor, options = {}) => 
   };
 };
 
-/**
- *
- * @param {object} object
- * @param {string} object.user
- * @param {Agent} [object.agent]
- * @param {string} [object.model]
- * @param {EModelEndpoint} [object.endpoint]
- * @param {LoadToolOptions} [object.options]
- * @param {boolean} [object.useSpecs]
- * @param {Array<string>} object.tools
- * @param {boolean} [object.functions]
- * @param {boolean} [object.returnMap]
- * @returns {Promise<{ loadedTools: Tool[], toolContextMap: Object<string, any> } | Record<string,Tool>>}
- */
 const loadTools = async ({
   user,
-  agent,
   model,
-  endpoint,
+  isAgent,
   useSpecs,
   tools = [],
   options = {},
@@ -200,9 +182,8 @@ const loadTools = async ({
     toolConstructors.dalle = DALLE3;
   }
 
-  /** @type {ImageGenOptions} */
   const imageGenOptions = {
-    isAgent: !!agent,
+    isAgent,
     req: options.req,
     fileStrategy: options.fileStrategy,
     processFileURL: options.processFileURL,
@@ -256,17 +237,8 @@ const loadTools = async ({
         if (toolContext) {
           toolContextMap[tool] = toolContext;
         }
-        return createFileSearchTool({ req: options.req, files, entity_id: agent?.id });
+        return createFileSearchTool({ req: options.req, files });
       };
-      continue;
-    } else if (mcpToolPattern.test(tool)) {
-      requestedTools[tool] = async () =>
-        createMCPTool({
-          req: options.req,
-          toolKey: tool,
-          model: agent?.model ?? model,
-          provider: agent?.provider ?? endpoint,
-        });
       continue;
     }
 

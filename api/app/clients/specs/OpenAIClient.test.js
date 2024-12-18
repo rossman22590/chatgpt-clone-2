@@ -412,7 +412,6 @@ describe('OpenAIClient', () => {
     it('should return the correct save options', () => {
       const options = client.getSaveOptions();
       expect(options).toHaveProperty('chatGptLabel');
-      expect(options).toHaveProperty('modelLabel');
       expect(options).toHaveProperty('promptPrefix');
     });
   });

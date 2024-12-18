@@ -50,10 +50,9 @@ const primeFiles = async (options) => {
  * @param {Object} options
  * @param {ServerRequest} options.req
  * @param {Array<{ file_id: string; filename: string }>} options.files
- * @param {string} [options.entity_id]
  * @returns
  */
-const createFileSearchTool = async ({ req, files, entity_id }) => {
+const createFileSearchTool = async ({ req, files }) => {
   return tool(
     async ({ query }) => {
       if (files.length === 0) {
@@ -63,36 +62,27 @@ const createFileSearchTool = async ({ req, files, entity_id }) => {
       if (!jwtToken) {
         return 'There was an error authenticating the file search request.';
       }
-
-      /**
-       *
-       * @param {import('librechat-data-provider').TFile} file
-       * @returns {{ file_id: string, query: string, k: number, entity_id?: string }}
-       */
-      const createQueryBody = (file) => {
-        const body = {
-          file_id: file.file_id,
-          query,
-          k: 5,
-        };
-        if (!entity_id) {
-          return body;
-        }
-        body.entity_id = entity_id;
-        logger.debug(`[${Tools.file_search}] RAG API /query body`, body);
-        return body;
-      };
-
       const queryPromises = files.map((file) =>
         axios
-          .post(`${process.env.RAG_API_URL}/query`, createQueryBody(file), {
-            headers: {
-              Authorization: `Bearer ${jwtToken}`,
-              'Content-Type': 'application/json',
+          .post(
+            `${process.env.RAG_API_URL}/query`,
+            {
+              file_id: file.file_id,
+              query,
+              k: 5,
             },
-          })
+            {
+              headers: {
+                Authorization: `Bearer ${jwtToken}`,
+                'Content-Type': 'application/json',
+              },
+            },
+          )
           .catch((error) => {
-            logger.error('Error encountered in `file_search` while querying file:', error);
+            logger.error(
+              `Error encountered in \`file_search\` while querying file_id ${file._id}:`,
+              error,
+            );
             return null;
           }),
       );
