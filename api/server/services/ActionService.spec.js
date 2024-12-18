@@ -2,9 +2,6 @@ const { Constants, EModelEndpoint, actionDomainSeparator } = require('librechat-
 const { domainParser } = require('./ActionService');
 
 jest.mock('keyv');
-jest.mock('~/server/services/Config', () => ({
-  getCustomConfig: jest.fn(),
-}));
 
 const globalCache = {};
 jest.mock('~/cache/getLogStores', () => {

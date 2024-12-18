@@ -16,7 +16,6 @@ const rootDir = path.resolve(__dirname, '..');
 const directories = [
   rootDir,
   path.resolve(rootDir, 'packages', 'data-provider'),
-  path.resolve(rootDir, 'packages', 'mcp'),
   path.resolve(rootDir, 'client'),
   path.resolve(rootDir, 'api'),
 ];

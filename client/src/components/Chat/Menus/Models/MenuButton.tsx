@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { Trigger } from '@radix-ui/react-popover';
 import type { TModelSpec, TEndpointsConfig } from 'librechat-data-provider';
 import { useLocalize } from '~/hooks';
@@ -21,8 +20,6 @@ export default function MenuButton({
   endpointsConfig: TEndpointsConfig;
 }) {
   const localize = useLocalize();
-  const [isExpanded, setIsExpanded] = useState(false);
-
   return (
     <Trigger asChild>
       <button
@@ -31,13 +28,7 @@ export default function MenuButton({
           className,
         )}
         type="button"
-        aria-label={localize('com_ui_llm_menu')}
-        role="combobox"
-        aria-haspopup="listbox"
-        aria-expanded={isExpanded}
-        aria-controls="llm-menu"
-        aria-activedescendant={isExpanded ? 'selected-llm' : undefined}
-        onClick={() => setIsExpanded(!isExpanded)}
+        aria-label={`Select ${primaryText}`}
       >
         {selected && selected.showIconInHeader === true && (
           <SpecIcon currentSpec={selected} endpointsConfig={endpointsConfig} />

@@ -32,9 +32,7 @@ const MenuItem: FC<MenuItemProps> = ({
 }) => {
   return (
     <div
-      id={selected ? 'selected-endpoint' : undefined}
-      role="option"
-      aria-selected={selected}
+      role="menuitem"
       aria-label={title}
       data-testid="chat-menu-item"
       className={cn(

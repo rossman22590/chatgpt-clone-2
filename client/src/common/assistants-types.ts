@@ -27,5 +27,4 @@ export type AssistantForm = {
   conversation_starters: string[];
   model: string;
   functions: string[];
-  append_current_datetime: boolean;
 } & Actions;

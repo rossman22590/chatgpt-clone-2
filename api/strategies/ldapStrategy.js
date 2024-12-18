@@ -1,8 +1,6 @@
 const fs = require('fs');
 const LdapStrategy = require('passport-ldapauth');
-const { SystemRoles } = require('librechat-data-provider');
 const { findUser, createUser, updateUser } = require('~/models/userMethods');
-const { countUsers } = require('~/models/userMethods');
 const { isEnabled } = require('~/server/utils');
 const logger = require('~/utils/logger');
 
@@ -111,7 +109,6 @@ const ldapLogin = new LdapStrategy(ldapOptions, async (userinfo, done) => {
     }
 
     if (!user) {
-      const isFirstRegisteredUser = (await countUsers()) === 0;
       user = {
         provider: 'ldap',
         ldapId,
@@ -119,7 +116,6 @@ const ldapLogin = new LdapStrategy(ldapOptions, async (userinfo, done) => {
         email: mail,
         emailVerified: true, // The ldap server administrator should verify the email
         name: fullName,
-        role: isFirstRegisteredUser ? SystemRoles.ADMIN : SystemRoles.USER,
       };
       const userId = await createUser(user);
       user._id = userId;

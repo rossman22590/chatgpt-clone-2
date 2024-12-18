@@ -1,4 +1,4 @@
-import { useLocalize } from '~/hooks';
+import { useLocalize, useLocalStorage } from '~/hooks';
 import { TooltipAnchor } from '~/components/ui';
 import { cn } from '~/utils';
 

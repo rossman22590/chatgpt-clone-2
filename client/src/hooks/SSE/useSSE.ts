@@ -190,16 +190,11 @@ export default function useSSE(
         /* token expired, refresh and retry */
         try {
           const refreshResponse = await request.refreshToken();
-          const token = refreshResponse?.token ?? '';
-          if (!token) {
-            throw new Error('Token refresh failed.');
-          }
           sse.headers = {
             'Content-Type': 'application/json',
-            Authorization: `Bearer ${token}`,
+            Authorization: `Bearer ${refreshResponse.token}`,
           };
-
-          request.dispatchTokenUpdatedEvent(token);
+          request.dispatchTokenUpdatedEvent(refreshResponse.token);
           sse.stream();
           return;
         } catch (error) {

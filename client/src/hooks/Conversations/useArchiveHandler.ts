@@ -8,7 +8,7 @@ import useLocalize from '../useLocalize';
 import useNewConvo from '../useNewConvo';
 
 export default function useArchiveHandler(
-  conversationId: string | null,
+  conversationId: string,
   shouldArchive: boolean,
   retainView: () => void,
 ) {
@@ -19,22 +19,18 @@ export default function useArchiveHandler(
   const { refreshConversations } = useConversations();
   const { conversationId: currentConvoId } = useParams();
 
-  const archiveConvoMutation = useArchiveConversationMutation(conversationId ?? '');
+  const archiveConvoMutation = useArchiveConversationMutation(conversationId);
 
   return async (e?: MouseEvent | FocusEvent | KeyboardEvent) => {
     if (e) {
       e.preventDefault();
     }
-    const convoId = conversationId ?? '';
-    if (!convoId) {
-      return;
-    }
     const label = shouldArchive ? 'archive' : 'unarchive';
     archiveConvoMutation.mutate(
-      { conversationId: convoId, isArchived: shouldArchive },
+      { conversationId, isArchived: shouldArchive },
       {
         onSuccess: () => {
-          if (currentConvoId === convoId || currentConvoId === 'new') {
+          if (currentConvoId === conversationId || currentConvoId === 'new') {
             newConversation();
             navigate('/c/new', { replace: true });
           }

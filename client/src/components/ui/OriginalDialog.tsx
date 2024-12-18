@@ -3,28 +3,7 @@ import * as DialogPrimitive from '@radix-ui/react-dialog';
 import { X } from 'lucide-react';
 import { cn } from '~/utils';
 
-interface OGDialogProps extends DialogPrimitive.DialogProps {
-  triggerRef?: React.RefObject<HTMLButtonElement>;
-}
-
-const Dialog = React.forwardRef<HTMLDivElement, OGDialogProps>(
-  ({ children, triggerRef, onOpenChange, ...props }) => {
-    const handleOpenChange = (open: boolean) => {
-      if (!open && triggerRef?.current) {
-        setTimeout(() => {
-          triggerRef.current?.focus();
-        }, 0);
-      }
-      onOpenChange?.(open);
-    };
-
-    return (
-      <DialogPrimitive.Root {...props} onOpenChange={handleOpenChange}>
-        {children}
-      </DialogPrimitive.Root>
-    );
-  },
-);
+const Dialog = DialogPrimitive.Root;
 
 const DialogTrigger = DialogPrimitive.Trigger;
 

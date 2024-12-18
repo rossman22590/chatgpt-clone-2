@@ -6,14 +6,14 @@ import MenuSeparator from '~/components/Chat/Menus/UI/MenuSeparator';
 import ModelSpec from './ModelSpec';
 
 const ModelSpecs: FC<{
-  specs?: Array<TModelSpec | undefined>;
+  specs?: TModelSpec[];
   selected?: TModelSpec;
   setSelected?: (spec: TModelSpec) => void;
   endpointsConfig: TEndpointsConfig;
 }> = ({ specs = [], selected, setSelected = () => ({}), endpointsConfig }) => {
   return (
     <>
-      {specs.length &&
+      {specs &&
         specs.map((spec, i) => {
           if (!spec) {
             return null;

@@ -19,7 +19,6 @@ import { useAssistantsMapContext, useToastContext } from '~/Providers';
 import { useSelectAssistant, useLocalize } from '~/hooks';
 import { ToolSelectDialog } from '~/components/Tools';
 import CapabilitiesForm from './CapabilitiesForm';
-import AppendDateCheckbox from './AppendDateCheckbox';
 import { SelectDropDown } from '~/components/ui';
 import AssistantAvatar from './AssistantAvatar';
 import AssistantSelect from './AssistantSelect';
@@ -64,7 +63,7 @@ export default function AssistantPanel({
 
   const [showToolDialog, setShowToolDialog] = useState(false);
 
-  const { control, handleSubmit, reset, setValue, getValues } = methods;
+  const { control, handleSubmit, reset } = methods;
   const assistant = useWatch({ control, name: 'assistant' });
   const functions = useWatch({ control, name: 'functions' });
   const assistant_id = useWatch({ control, name: 'id' });
@@ -168,7 +167,7 @@ export default function AssistantPanel({
       instructions,
       conversation_starters: starters,
       model,
-      append_current_datetime,
+      // file_ids, // TODO: add file handling here
     } = data;
 
     if (assistant_id) {
@@ -182,7 +181,6 @@ export default function AssistantPanel({
           model,
           tools,
           endpoint,
-          append_current_datetime,
         },
       });
       return;
@@ -197,7 +195,6 @@ export default function AssistantPanel({
       tools,
       endpoint,
       version,
-      append_current_datetime,
     });
   };
 
@@ -327,9 +324,6 @@ export default function AssistantPanel({
               )}
             />
           </div>
-
-          {/* Append Today's Date */}
-          <AppendDateCheckbox control={control} setValue={setValue} getValues={getValues} />
 
           {/* Conversation Starters */}
           <div className="relative mb-6">
