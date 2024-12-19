@@ -62,11 +62,7 @@ function AuthLayout({
       <Banner />
       <BlinkAnimation active={isFetching}>
         <div className="mt-6 h-10 w-full bg-cover">
-          <img
-            src="/assets/logo.svg"
-            className="h-full w-full object-contain"
-            alt={localize('com_ui_logo', startupConfig?.appTitle ?? 'LibreChat')}
-          />
+      <img src="https://img.mytsi.org/i/gxDs711.png" className="h-full w-full object-contain" alt="Logo" />
         </div>
       </BlinkAnimation>
       <DisplayError />
