@@ -65,7 +65,7 @@ function AuthLayout({
           <img
             src="https://img.mytsi.org/i/gxDs711.png"
             className="h-full w-full object-contain"
-            alt={localize('com_ui_logo', startupConfig?.appTitle ?? 'LibreChat')}
+            alt={localize('com_ui_logo', startupConfig?.appTitle ?? 'Multibot')}
           />
         </div>
       </BlinkAnimation>
