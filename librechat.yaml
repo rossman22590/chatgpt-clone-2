@@ -54,13 +54,27 @@ speech:
 fileConfig:
   endpoints:
     default:
-      fileLimit: 5
-      fileSizeLimit: 5
+      fileLimit: 20
+      fileSizeLimit: 500
       totalSizeLimit: 15
       supportedMimeTypes:
         - "image/.*"
-        - "application/pdf"      
-      
+        - "application/pdf"
+        - "application/typescript"
+        - "text/plain"
+        - "text/html"
+        - "text/csv"
+        - "text/css"
+        - "text/javascript"
+        - "application/xml"
+        - "application/zip"
+        - "application/x-tar"
+        - "application/gzip"
+        - "application/json"
+        - "font/woff"
+        - "font/woff2"
+        - "font/ttf"
+        - "font/otf"
 
 
 
