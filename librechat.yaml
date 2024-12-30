@@ -120,9 +120,6 @@ endpoints:
           "llama-3.1-sonar-small-128k-online",
           "llama-3.1-sonar-large-128k-online",
           "llama-3.1-sonar-huge-128k-online",
-          "mixtral-8x7b-instruct",
-          "llama-3-8b-instruct",
-          "llama-3-70b-instruct"
           ]
         fetch: false # fetching list of models is not supported
       titleConvo: true
