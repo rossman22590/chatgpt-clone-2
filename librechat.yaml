@@ -127,7 +127,7 @@ endpoints:
       summarize: false
       summaryModel: "llama-3.1-sonar-small-128k-online"
       forcePrompt: false
-      dropParams: ["stop"]
+      dropParams: ["stop", "frequency_penalty"]
       modelDisplayLabel: "Perplexity"
     - name: "OpenRouter"
       apiKey: "${OPENROUTER_KEY}"
