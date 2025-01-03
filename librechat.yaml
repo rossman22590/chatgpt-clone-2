@@ -123,9 +123,9 @@ endpoints:
           ]
         fetch: false # fetching list of models is not supported
       titleConvo: true
-      titleModel: "llama-3-sonar-small-32k-chat"
+      titleModel: "llama-3.1-sonar-small-128k-online"
       summarize: false
-      summaryModel: "llama-3-sonar-small-32k-chat"
+      summaryModel: "llama-3.1-sonar-small-128k-online"
       forcePrompt: false
       dropParams: ["stop", "frequency_penalty"]
       modelDisplayLabel: "Perplexity"
