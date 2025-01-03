@@ -327,7 +327,7 @@ endpoints:
           "undi95/toppy-m-7b",
           "xwin-lm/xwin-lm-70b"
           ]
-        fetch: false
+        fetch: true
       dropParams: ["stop"]
       titleConvo: true
       titleModel: "gpt-3.5-turbo"
