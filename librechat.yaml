@@ -51,6 +51,15 @@ speech:
       playbackRate: 1.0
       cacheTTS: true
 
+# fileConfig:
+#   endpoints:
+#     default:
+#       fileLimit: 5
+#       fileSizeLimit: 5
+#       totalSizeLimit: 15
+#       supportedMimeTypes:
+#         - "image/.*"
+#         - "application/pdf"      
 fileConfig:
   endpoints:
     default:
@@ -59,7 +68,30 @@ fileConfig:
       totalSizeLimit: 15
       supportedMimeTypes:
         - "image/.*"
-        - "application/pdf"      
+        - "application/pdf"
+        - "application/msword"
+        - "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+        - "application/vnd.oasis.opendocument.text"
+        - "text/plain"
+        - "application/vnd.ms-excel"
+        - "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+        - "application/vnd.oasis.opendocument.spreadsheet"
+        - "video/mp4"
+        - "video/x-msvideo"
+        - "video/quicktime"
+        - "video/x-ms-wmv"
+        - "video/x-flv"
+        - "video/webm"
+        - "video/3gpp"
+        - "video/mpeg"
+        - "audio/mpeg"
+        - "audio/wav"
+        - "audio/wma"
+        - "audio/aac"
+        - "audio/ogg"
+        - "audio/midi"
+        - "audio/x-m4a"
+        - "audio/webm"
       
 
 
