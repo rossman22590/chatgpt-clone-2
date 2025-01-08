@@ -51,15 +51,16 @@ speech:
       playbackRate: 1.0
       cacheTTS: true
 
-# fileConfig:
-#   endpoints:
-#     default:
-#       fileLimit: 5
-#       fileSizeLimit: 5
-#       totalSizeLimit: 15
-#       supportedMimeTypes:
-#         - "image/.*"
-#         - "application/pdf"      
+fileConfig:
+  endpoints:
+    default:
+      fileLimit: 25
+      fileSizeLimit: 10
+      totalSizeLimit: 200
+      supportedMimeTypes:
+        - "image/.*"
+        - "application/pdf"   
+        - "text/plain"   
 # fileConfig:
 #   endpoints:
 #     default:
@@ -93,89 +94,89 @@ speech:
 #         - "audio/x-m4a"
 #         - "audio/webm"
 
-fileConfig:
-  endpoints:
-    default:
-      fileLimit: 5
-      fileSizeLimit: 5
-      totalSizeLimit: 15
-      supportedMimeTypes:
-        - "image/.*"
-        - "application/pdf"
-        - "application/msword"
-        - "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
-        - "application/vnd.oasis.opendocument.text"
-        - "text/plain"
-        - "application/vnd.ms-excel"
-        - "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
-        - "application/vnd.oasis.opendocument.spreadsheet"
-        - "video/mp4"
-        - "video/x-msvideo"
-        - "video/quicktime"
-        - "video/x-ms-wmv"
-        - "video/x-flv"
-        - "video/webm"
-        - "video/3gpp"
-        - "video/mpeg"
-        - "audio/mpeg"
-        - "audio/wav"
-        - "audio/wma"
-        - "audio/aac"
-        - "audio/ogg"
-        - "audio/midi"
-        - "audio/x-m4a"
-        - "audio/webm"
-        - "text/csv"
-        - "application/csv"
-        - "text/comma-separated-values"
-        - "application/x-csv"
-        - "text/x-csv"
-        - "application/vnd.ms-excel.csv"
-        - "application/vnd.openxmlformats-officedocument.spreadsheetml.csv"
-        - "text/javascript"
-        - "application/javascript"
-        - "application/x-javascript"
-        - "text/x-javascript"
-        - "text/typescript"
-        - "application/typescript"
-        - "text/x-typescript"
-        - "application/x-typescript"
-        - "text/tsx"
-        - "text/jsx"
-        - "text/x-python"
-        - "application/x-python"
-        - "text/x-python-script"
-        - "application/x-python-code"
-        - "text/x-java"
-        - "text/java"
-        - "text/x-java-source"
-        - "text/x-c"
-        - "text/x-c++"
-        - "text/x-c++src"
-        - "text/x-csharp"
-        - "text/x-ruby"
-        - "application/x-ruby"
-        - "text/x-php"
-        - "application/x-httpd-php"
-        - "application/php"
-        - "text/x-go"
-        - "text/x-scala"
-        - "text/x-swift"
-        - "text/x-kotlin"
-        - "text/x-rust"
-        - "text/x-dart"
-        - "text/x-haskell"
-        - "text/x-lua"
-        - "text/x-perl"
-        - "text/x-sql"
-        - "application/sql"
-        - "text/xml"
-        - "application/xml"
-        - "text/html"
-        - "application/xhtml+xml"
-        - "text/css"
-        - "text/x-sass"
-        - "text/x-less"
+# fileConfig:
+#   endpoints:
+#     default:
+#       fileLimit: 5
+#       fileSizeLimit: 5
+#       totalSizeLimit: 15
+#       supportedMimeTypes:
+#         - "image/.*"
+#         - "application/pdf"
+#         - "application/msword"
+#         - "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+#         - "application/vnd.oasis.opendocument.text"
+#         - "text/plain"
+#         - "application/vnd.ms-excel"
+#         - "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+#         - "application/vnd.oasis.opendocument.spreadsheet"
+#         - "video/mp4"
+#         - "video/x-msvideo"
+#         - "video/quicktime"
+#         - "video/x-ms-wmv"
+#         - "video/x-flv"
+#         - "video/webm"
+#         - "video/3gpp"
+#         - "video/mpeg"
+#         - "audio/mpeg"
+#         - "audio/wav"
+#         - "audio/wma"
+#         - "audio/aac"
+#         - "audio/ogg"
+#         - "audio/midi"
+#         - "audio/x-m4a"
+#         - "audio/webm"
+#         - "text/csv"
+#         - "application/csv"
+#         - "text/comma-separated-values"
+#         - "application/x-csv"
+#         - "text/x-csv"
+#         - "application/vnd.ms-excel.csv"
+#         - "application/vnd.openxmlformats-officedocument.spreadsheetml.csv"
+#         - "text/javascript"
+#         - "application/javascript"
+#         - "application/x-javascript"
+#         - "text/x-javascript"
+#         - "text/typescript"
+#         - "application/typescript"
+#         - "text/x-typescript"
+#         - "application/x-typescript"
+#         - "text/tsx"
+#         - "text/jsx"
+#         - "text/x-python"
+#         - "application/x-python"
+#         - "text/x-python-script"
+#         - "application/x-python-code"
+#         - "text/x-java"
+#         - "text/java"
+#         - "text/x-java-source"
+#         - "text/x-c"
+#         - "text/x-c++"
+#         - "text/x-c++src"
+#         - "text/x-csharp"
+#         - "text/x-ruby"
+#         - "application/x-ruby"
+#         - "text/x-php"
+#         - "application/x-httpd-php"
+#         - "application/php"
+#         - "text/x-go"
+#         - "text/x-scala"
+#         - "text/x-swift"
+#         - "text/x-kotlin"
+#         - "text/x-rust"
+#         - "text/x-dart"
+#         - "text/x-haskell"
+#         - "text/x-lua"
+#         - "text/x-perl"
+#         - "text/x-sql"
+#         - "application/sql"
+#         - "text/xml"
+#         - "application/xml"
+#         - "text/html"
+#         - "application/xhtml+xml"
+#         - "text/css"
+#         - "text/x-sass"
+#         - "text/x-less"
       
 
 
