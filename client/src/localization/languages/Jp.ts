@@ -905,4 +905,12 @@ export default {
   com_ui_duplicate_agent_confirm: 'このエージェントを複製しますか？',
   com_nav_welcome_agent: 'エージェントを選択してください',
   com_ui_delete_shared_link: '共有リンクを削除しますか？',
+  com_ui_bookmarks_add: 'ブックマークを追加',
+  com_ui_page: 'ページ',
+  com_ui_bookmarks_edit: 'ブックマークを編集',
+  com_endpoint_ai: 'AI',
+  com_nav_maximize_chat_space: 'チャット画面を最大化',
+  com_ui_collapse_chat: 'チャットを折りたたむ',
+  com_endpoint_message_new: 'メッセージ {0}',
+  com_ui_speech_while_submitting: '応答の生成中は音声を送信できません',
 };

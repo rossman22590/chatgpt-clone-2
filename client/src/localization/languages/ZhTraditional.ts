@@ -874,4 +874,12 @@ export default {
   com_ui_duplicate_agent_confirm: '您確定要複製這個助理嗎？',
   com_ui_delete_shared_link: '刪除共享連結？',
   com_nav_welcome_agent: '請選擇代理',
+  com_ui_bookmarks_edit: '編輯書籤',
+  com_ui_bookmarks_add: '新增書籤',
+  com_ui_page: '頁面',
+  com_nav_maximize_chat_space: '最大化聊天視窗',
+  com_endpoint_ai: 'AI',
+  com_ui_collapse_chat: '收合對話',
+  com_endpoint_message_new: '訊息 {0}',
+  com_ui_speech_while_submitting: '正在產生回應時無法送出語音',
 };

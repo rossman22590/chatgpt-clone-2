@@ -897,4 +897,12 @@ export default {
   com_endpoint_agent_placeholder: '请选择代理',
   com_ui_delete_shared_link: '删除分享链接？',
   com_nav_welcome_agent: '请选择 Agent',
+  com_ui_bookmarks_add: '添加书签',
+  com_ui_bookmarks_edit: '编辑书签',
+  com_endpoint_ai: '人工智能',
+  com_ui_page: '页面',
+  com_nav_maximize_chat_space: '最大化聊天窗口',
+  com_ui_collapse_chat: '收起聊天',
+  com_endpoint_message_new: '消息 {0}',
+  com_ui_speech_while_submitting: '正在生成回复时无法提交语音',
 };
