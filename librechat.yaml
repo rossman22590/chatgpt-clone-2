@@ -64,7 +64,7 @@ speech:
 fileConfig:
   endpoints:
     default:
-      fileLimit: 25
+      fileLimit: 50
       fileSizeLimit: 100
       totalSizeLimit: 25
       supportedMimeTypes:
@@ -232,7 +232,9 @@ endpoints:
       apiKey: "${PERPLEXITY_API_KEY}"
       baseURL: "https://api.perplexity.ai/"
       models:
-        default: [    
+        default: [   
+          "sonar-pro",
+          "sonar",
           "llama-3.1-sonar-small-128k-online",
           "llama-3.1-sonar-large-128k-online",
           "llama-3.1-sonar-huge-128k-online",
@@ -367,6 +369,7 @@ endpoints:
         "microsoft/phi-3-medium-128k-instruct",
         "microsoft/phi-3-mini-128k-instruct",
         "microsoft/phi-3.5-mini-128k-instruct",
+        "microsoft/phi-4",
         "microsoft/wizardlm-2-7b",
         "microsoft/wizardlm-2-8x22b",
         "---MISTRALAI---",
@@ -466,7 +469,9 @@ endpoints:
         "cognitivecomputations/dolphin-mixtral-8x22b",
         "cognitivecomputations/dolphin-mixtral-8x7b",
         "databricks/dbrx-instruct",
+        "minimax/minimax-01",
         "deepseek/deepseek-chat",
+        "deepseek/deepseek-r1",
         "deepseek/deepseek-chat-v2.5",
         "gryphe/mythomax-l2-13b",
         "infermatic/mn-inferor-12b",
