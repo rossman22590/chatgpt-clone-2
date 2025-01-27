@@ -794,7 +794,11 @@ ${convo}
         }
 
         title = (
-          await this.sendPayload(instructionsPayload, { modelOptions, useChatCompletion })
+          await this.sendPayload(instructionsPayload, {
+            modelOptions,
+            useChatCompletion,
+            context: 'title',
+          })
         ).replaceAll('"', '');
 
         const completionTokens = this.getTokenCount(title);
@@ -1253,6 +1257,12 @@ ${convo}
         delete modelOptions.stop;
       }
 
+      let reasoningKey = 'reasoning_content';
+      if (this.useOpenRouter) {
+        modelOptions.include_reasoning = true;
+        reasoningKey = 'reasoning';
+      }
+
       if (modelOptions.stream) {
         streamPromise = new Promise((resolve) => {
           streamResolve = resolve;
@@ -1291,8 +1301,14 @@ ${convo}
 
         let reasoningCompleted = false;
         for await (const chunk of stream) {
-          if (chunk?.choices?.[0]?.delta?.reasoning_content) {
-            const reasoning_content = chunk?.choices?.[0]?.delta?.reasoning_content || '';
+          if (chunk?.choices?.[0]?.delta?.[reasoningKey]) {
+            if (reasoningTokens.length === 0) {
+              const thinkingDirective = '<think>\n';
+              intermediateReply.push(thinkingDirective);
+              reasoningTokens.push(thinkingDirective);
+              onProgress(thinkingDirective);
+            }
+            const reasoning_content = chunk?.choices?.[0]?.delta?.[reasoningKey] || '';
             intermediateReply.push(reasoning_content);
             reasoningTokens.push(reasoning_content);
             onProgress(reasoning_content);
@@ -1301,7 +1317,7 @@ ${convo}
           const token = chunk?.choices?.[0]?.delta?.content || '';
           if (!reasoningCompleted && reasoningTokens.length > 0 && token) {
             reasoningCompleted = true;
-            const separatorTokens = '\n\n---\n';
+            const separatorTokens = '\n</think>\n';
             reasoningTokens.push(separatorTokens);
             onProgress(separatorTokens);
           }
@@ -1372,7 +1388,7 @@ ${convo}
         return reply;
       }
 
-      if (reasoningTokens.length > 0) {
+      if (reasoningTokens.length > 0 && this.options.context !== 'title') {
         return reasoningTokens.join('') + message.content;
       }
 
