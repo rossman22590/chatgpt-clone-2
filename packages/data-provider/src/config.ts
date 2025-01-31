@@ -479,6 +479,7 @@ export type TStartupConfig = {
   githubLoginEnabled: boolean;
   googleLoginEnabled: boolean;
   openidLoginEnabled: boolean;
+  appleLoginEnabled: boolean;
   openidLabel: string;
   openidImageUrl: string;
   /** LDAP Auth Configuration */
@@ -1234,6 +1235,6 @@ export enum SystemCategories {
 export const providerEndpointMap = {
   [EModelEndpoint.openAI]: EModelEndpoint.openAI,
   [EModelEndpoint.bedrock]: EModelEndpoint.bedrock,
-  [EModelEndpoint.azureOpenAI]: EModelEndpoint.openAI,
   [EModelEndpoint.anthropic]: EModelEndpoint.anthropic,
+  [EModelEndpoint.azureOpenAI]: EModelEndpoint.azureOpenAI,
 };
