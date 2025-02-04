@@ -63,7 +63,7 @@ function AuthLayout({
       <BlinkAnimation active={isFetching}>
         <div className="mt-6 h-10 w-full bg-cover">
           <img
-            src="https://img.mytsi.org/i/gxDs711.png"
+            src="https://pixiomedia.nyc3.digitaloceanspaces.com/uploads/1738631579186-gxDs711.png"
             className="h-full w-full object-contain"
             alt={localize('com_ui_logo', startupConfig?.appTitle ?? 'Multibot')}
           />
