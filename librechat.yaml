@@ -232,7 +232,8 @@ endpoints:
       apiKey: "${PERPLEXITY_API_KEY}"
       baseURL: "https://api.perplexity.ai/"
       models:
-        default: [   
+        default: [ 
+          "sonar-reasoning-pro",
           "sonar-pro",
           "sonar-reasoning",
           "sonar",
